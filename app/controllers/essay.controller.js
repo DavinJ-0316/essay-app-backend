@@ -135,7 +135,7 @@ exports.submitEssay = async (req, res) => {
               <ul>
                 <li>Question: ${req.body.question}</li>
                 <br/>
-                <li>Submitted Answer: ${req.body.answer}</li>
+                <li><textarea> Submitted Answer: ${req.body.answer} </textarea></li>
                 <br/>
                 <li>Generated Results: ${completion.data.choices[0].message.content}</li>
                 <br/>
