@@ -73,7 +73,8 @@ exports.submitEssay = async (req, res) => {
             max_tokens: 2048,
             top_p: 1,
             presence_penalty: 0.5,
-            frequency_penalty: 0.5
+            frequency_penalty: 0.5,
+            seed: 12345
           });
 
           const currentUser = await User.findOne({
