@@ -158,14 +158,14 @@ exports.submitEssay = async (req, res) => {
     const year = date_time.getFullYear();
     return { year, month, date };
   }
-  /*Updated this function*/
+  /*User prompt for ChatGPT 3.5*/
   function generatePrompt(question, answer, task) {
     return `  Task: ${task} 
               Question: '${question}'
               Answer: '${answer}.'`;
   }
 
-  /*added this function*/
+  /*System prompt for ChatGPT 3.5*/
   function generateSystemPrompt() {
     return `You are an expert English teacher who excels at training candidates in IELTS, PTE, TOEFL and Duolingo. 
 
