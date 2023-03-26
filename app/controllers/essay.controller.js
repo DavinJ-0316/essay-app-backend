@@ -85,12 +85,16 @@ exports.submitEssay = async (req, res) => {
           const { year, month, date } = generateDate();
           //modifying the related field
           currentUser.success_count = currentUser.success_count + 1;
+          currentUser.spend_amount = currentUser.spend_amount + req.body.amount;
           //saving the changes
-          currentUser.save({ fields: ['success_count'] });
+          currentUser.save({ fields: ['success_count', 'spend_amount'] });
           const mailOptions = getEmailOptions(currentUser, completion, year, month, date);
           res.status(200).json({
             result: completion.data.choices[0].message.content
           });
+          essay.result = completion.data.choices[0].message.content;
+          //saving the changes
+          essay.save({ fields: ['result'] });
           await transporter.sendMail(mailOptions);
         }
       } catch (error) {

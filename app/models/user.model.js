@@ -20,6 +20,9 @@ module.exports = (sequelize, Sequelize) => {
     },
     is_user_confirmed: {
       type: Sequelize.BOOLEAN
+    },
+    spend_amount: {
+      type: Sequelize.FLOAT
     }
   });
 
